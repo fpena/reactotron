@@ -228,6 +228,7 @@ export class ReactotronImpl implements ReactotronCore {
         host: "localhost",
         port: 9090,
         name: "reactotron-core-client",
+        appId: null,
         secure: false,
         plugins: corePlugins,
         safeRecursion: true,
@@ -266,6 +267,7 @@ export class ReactotronImpl implements ReactotronCore {
       environment,
       port,
       name,
+      appId,
       client = {},
       getClientId,
     } = this.options
@@ -292,6 +294,7 @@ export class ReactotronImpl implements ReactotronCore {
           environment,
           ...client,
           name,
+          appId,
           clientId,
           reactotronCoreClientVersion: "REACTOTRON_CORE_CLIENT_VERSION",
         })

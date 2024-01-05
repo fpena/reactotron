@@ -23,6 +23,7 @@ export interface ReactotronConnection {
   // TODO: Nullable maybe?
   platform: "ios" | "android" | "browser"
   name?: string
+  appId?: string
   platformVersion?: string
   osRelease?: string
   userAgent?: string

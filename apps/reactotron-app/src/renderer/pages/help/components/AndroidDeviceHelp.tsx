@@ -242,7 +242,8 @@ const AndroidDeviceList = ({
               <Tooltip id="shake-device" multiline />
             </ItemContainer>
             <ItemContainer
-              onClick={() => ipcRenderer.send("clear-app-data", device.id)}
+              /* Implement pass of package name to clear app data */
+              onClick={() => ipcRenderer.send("clear-app-data", device.id, "com.reactotron.app")}
               data-tip="This will clear app data<br /> on the Android device."
               data-for="clear-app-data"
             >

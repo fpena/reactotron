@@ -85,11 +85,11 @@ export const setupAndroidDeviceIPCCommands = (mainWindow: BrowserWindow) => {
   })
 
   // Clear app data on the android device
-  ipcMain.on("clear-app-data", (_event, arg) => {
+  ipcMain.on("clear-app-data", (_event, arg, appId) => {
     console.log("Showing react-native debug menu", arg)
     const clearAppDataProcess = childProcess.spawn(
       "adb",
-      ["-s", arg, "shell", "pm", "clear", "com.myapp"],
+      ["-s", arg, "shell", "pm", "clear", appId],
       {
         shell: true,
       }

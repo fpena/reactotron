@@ -31,6 +31,11 @@ export interface ClientOptions<Client> extends LifeCycleMethods {
   name?: string
 
   /**
+   * The app id of this client.  Usually the bundle id or package name.
+   */
+  appId?: string
+
+  /**
    * Will we be connecting via SSL?
    */
   secure?: boolean
