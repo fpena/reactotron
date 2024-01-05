@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { GoGear as SettingsIcon } from "react-icons/go"
 import { MdCompareArrows as ReverseTunnelIcon } from "react-icons/md"
 import { CgSmartphoneShake as ShakeDeviceIcon } from "react-icons/cg"
+import { GiMagicBroom as BroomIcon } from "react-icons/gi"
 import { IoReloadOutline as ReloadAppIcon } from "react-icons/io5"
 import { EmptyState, Tooltip } from "reactotron-core-ui"
 import { FaAndroid } from "react-icons/fa"
@@ -239,6 +240,17 @@ const AndroidDeviceList = ({
               </ItemIconContainer>
               Shake
               <Tooltip id="shake-device" multiline />
+            </ItemContainer>
+            <ItemContainer
+              onClick={() => ipcRenderer.send("clear-app-data", device.id)}
+              data-tip="This will clear app data<br /> on the Android device."
+              data-for="clear-app-data"
+            >
+              <ItemIconContainer>
+                <BroomIcon size={40} />
+              </ItemIconContainer>
+              Clear App Data
+              <Tooltip id="clear-app-data" multiline />
             </ItemContainer>
           </AndroidDeviceButtonsContainer>
         </div>

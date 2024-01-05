@@ -84,6 +84,23 @@ export const setupAndroidDeviceIPCCommands = (mainWindow: BrowserWindow) => {
     })
   })
 
+  // Clear app data on the android device
+  ipcMain.on("clear-app-data", (_event, arg) => {
+    console.log("Showing react-native debug menu", arg)
+    const clearAppDataProcess = childProcess.spawn(
+      "adb",
+      ["-s", arg, "shell", "pm", "clear", "com.myapp"],
+      {
+        shell: true,
+      }
+    )
+    clearAppDataProcess.stdout.setEncoding("utf8")
+    clearAppDataProcess.stdout.on("data", (data) => {
+      data = data.toString()
+      console.log("Clear app data complete", data)
+    })
+  })
+
   // Now we need to start watching for android devices being plugged and unplugged
   const trackDevicesProcess = childProcess.spawn("adb", ["track-devices"], {
     shell: true,
